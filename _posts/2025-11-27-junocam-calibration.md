@@ -2,8 +2,8 @@
 layout: post
 title: "Structure-Preserving Unpaired Image Translation to Photometrically Calibrate JunoCam with Hubble Data"
 date: 2025-11-01
-authors: "Aditya Pratap Singh, Shrey Shah, Ramanakumar Sankar, Emma Dahl, Georgios Georgakis, Gerald Eichstädt, Bernadette Bucher"
-venue: "ArXiv"
+authors: "Aditya Pratap Singh, Shrey Shah, Ramanakumar Sankar, Emma Dahl, Gerald Eichstädt, Georgios Georgakis, Bernadette Bucher"
+venue: "arXiv"
 arxiv: "https://arxiv.org/abs/2511.22668v1"
 code: ""
 video: "https://youtu.be/ZPtnz2bvTvE"
