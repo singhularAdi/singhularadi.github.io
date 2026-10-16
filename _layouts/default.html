@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,261 +10,154 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PFVQH7N2');
   </script>
-<!-- End Google Tag Manager -->
-  <title>{{ site.name }}</title>
-
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-
-  <meta name="author" content="{{ site.name }}" />
+  <!-- End Google Tag Manager -->
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.name }}</title>
+  <meta name="author" content="{{ site.name }}">
+  {% assign description = "PhD candidate at the University of Michigan working on physically consistent predictive and generative models, with applications in robotics and remote sensing." %}
+  <meta name="description" content="{{ description }}">
 
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+  <link rel="icon" href="{{ site.baseurl }}/favicon.ico" sizes="48x48">
+  <link rel="icon" href="{{ site.baseurl }}/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{ site.baseurl }}/apple-touch-icon.png">
+
+  <!-- Link previews (Slack, X, iMessage, ...) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ site.name }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}/">
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/images/profile.jpg">
+  <meta name="twitter:card" content="summary">
+
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFVQH7N2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <table style="width:100%;max-width:1000px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:60%;vertical-align:middle">
-              <h1>
-                Aditya Pratap Singh
-              </h1>
-              <p>I am a second year PhD student at the <a href="https://cse.engin.umich.edu/">Computer Science & Engineering</a> department, at the <a href="https://umich.edu/">University of Michigan</a>, where I work on structured methods for computer vision and robotics. My PhD advisor is <a href="https://bucherb.github.io/">Bernadette Bucher</a>.
-              </p>
-              <p>
-              I previously worked as a Machine Learning Engineer at <a href="https://vcentertainment.com/">Visual Concepts Entertainment</a>, developing Machine Learning solutions for the <a href="https://nba.2k.com/">NBA 2K</a> series, focusing on animation, graphics and motion systems.  <p>
-              <p>
-                I have an MSE in Computer & Information Science from the <a href="https://www.cis.upenn.edu/">University of Pennsylvania</a>, where I worked with <a href="https://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a>. I also hold a B.Tech in Computer Science & Engineering from VIT Vellore, India.
-              </p>
-              <p style="text-align:center">
-                <a target="_blank" href="https://mailhide.io/e/ikUqNic9"> Email</a> &nbsp;/&nbsp;
-                <a href="https://github.com/singhularadi">GitHub</a> &nbsp;/&nbsp;
-                <a target="_blank" href="https://drive.google.com/file/d/1M4X9x0pnLcMvfl0_j46prZwOMSodp45D/view?usp=sharing"> CV</a> &nbsp;/&nbsp;
-                <a href="https://scholar.google.com/citations?user=rgecEYoAAAAJ&hl=en&authuser=1">Scholar</a>
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <img style="width:100%;max-width:100%" alt="profile photo" src="images/profile_img.png">
-            </td>
-          </tr>
-        </table>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFVQH7N2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:2.5%;width:100%;vertical-align:middle">
-              <h2>Research</h2>
-              <!-- <p> -->
-              <!--   I'm interested in computer vision, machine learning, optimization, graphics and robotics. -1-> -->
-<!--               </p> -->
-            </td>
-          </tr>
-        </table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+  <main class="page">
 
-          {% for post in site.posts %}
-          {% for cat in post.categories %}
-          {% if cat == 'research' %}
-          <tr>
-            <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px">
-              <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" />
-            </td>
-            <td style="padding:2.5%;width:75%;vertical-align:middle">
-              <h3>
-                <a href="{{post.website}}">{{post.title}}</a>
-              </h3>
-              <br>
-              {{post.authors}}
+    <!-- ============ INTRO ============ -->
+    <header class="intro">
+      <div class="intro-text">
+        <h1>Aditya Pratap Singh</h1>
+        <p class="tagline">PhD candidate · Physically consistent generative models</p>
 
-              <br>
-              <em>{{post.venue}}</em>, {{ post.date | date: "%Y" }}
-              <br>
-              {% if post.arxiv %}
-              <a href="{{post.arxiv}}">arXiv</a> /
-              {% endif %}
-              {% if post.website %}
-              <a href="{{post.website}}">project page</a> /
-              {% endif %}
-              {% if post.video %}
-              <a href="{{post.video}}">video</a> /
-              {% endif %}
-              {% if post.code %}
-              <a href="{{post.code}}">code</a> /
-              {% endif %}
-              {% if post.poster %}
-              <a href="{{post.poster}}">poster</a> /
-              {% endif %}
-              {% if post.slides %}
-              <a href="{{post.slides}}">slides</a> /
-              {% endif %}
-              {% if post.youtube %}
-              <a href="{{post.youtube}}">youtube</a> /
-              {% endif %}
-              <p></p>
-              {{ post.excerpt }}
-            </td>
-          </tr>
-          {% endif %}
-          {% endfor %}
-          {% endfor %}
-        </table>
-        <br>
-        <br>
-        <br>
-        <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"> -->
-        <!--   <tr> -->
-        <!--     <td style="padding:2.5%;width:100%;vertical-align:middle"> -->
-        <!--       <h2>Intel Projects</h2> -->
-        <!--       <p>Besides my work on the RealSense depth sensors and the publications above, a sampling of my publicly disclosed work -->
-        <!--       </p> -->
-        <!--     </td> -->
-        <!--   </tr> -->
-        <!-- </table> -->
-        <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"> -->
+        <p>I am a third-year PhD student in <a href="https://cse.engin.umich.edu/">Computer Science &amp; Engineering</a> at the <a href="https://umich.edu/">University of Michigan</a>, advised by <a href="https://bucherb.github.io/">Bernadette Bucher</a>. I work on physically consistent predictive and generative models with applications in robotics and remote sensing.</p>
 
-        <!--   {% for post in site.posts %} -->
-        <!--   {% for cat in post.categories %} -->
-        <!--   {% if cat == 'Intel' %} -->
-        <!--   <tr> -->
-        <!--     <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px"> -->
-        <!--       <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" /> -->
-        <!--     </td> -->
-        <!--     <td style="padding:2.5%;width:75%;vertical-align:middle"> -->
-        <!--       <h3>{{post.title}}</h3> -->
-        <!--       <br> -->
-        <!--       <em>{{post.categories}} {{post.course}}</em> -->
-        <!--       <br> -->
-        <!--       {{ post.date | date: "%Y-%m-%d" }} -->
+        <p>Previously, I was a Machine Learning Engineer at <a href="https://vcentertainment.com/">Visual Concepts Entertainment</a>, building ML solutions for animation, graphics and motion systems in the <a href="https://nba.2k.com/">NBA 2K</a> series.</p>
 
-        <!--       <br> -->
-        <!--       {% if post.website %} -->
-        <!--       <a href="{{post.website}}">website</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.paper %} -->
-        <!--       <a href="{{post.paper}}">paper</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.patent %} -->
-        <!--       <a href="{{post.patent}}">patent</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.patent2 %} -->
-        <!--       <a href="{{post.patent2}}">patent #2</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.patent3 %} -->
-        <!--       <a href="{{post.patent3}}">patent #3</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.video %} -->
-        <!--       <a href="{{post.video}}">video</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.video2 %} -->
-        <!--       <a href="{{post.video2}}">video #2</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.code %} -->
-        <!--       <a href="{{post.code}}">code</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.poster %} -->
-        <!--       <a href="{{post.poster}}">poster</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.slides %} -->
-        <!--       <a href="{{post.slides}}">slides</a> / -->
-        <!--       {% endif %} -->
-        <!--       <p></p> -->
-        <!--       {{ post.excerpt }} -->
-        <!--     </td> -->
-        <!--   </tr> -->
-        <!--   {% endif %} -->
-        <!--   {% endfor %} -->
-        <!--   {% endfor %} -->
-        <!-- </table> -->
-        <br>
-        <br>
-        <br>
-        <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"> -->
-        <!--   <tr> -->
-        <!--     <td style="padding:2.5%;width:100%;vertical-align:middle"> -->
-        <!--       <h2>Other Projects</h2> -->
-        <!--       <p> These include coursework, side projects and unpublished research work. -->
-        <!--       </p> -->
-        <!--     </td> -->
-        <!--   </tr> -->
-        <!-- </table> -->
-        <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"> -->
+        <p>I have an MSE in Computer &amp; Information Science from the <a href="https://www.cis.upenn.edu/">University of Pennsylvania</a>, where I worked with <a href="https://www.cis.upenn.edu/~kostas/">Kostas Daniilidis</a> on <span class="nowrap">vision-and-language</span> navigation. I also hold a B.Tech in Computer Science &amp; Engineering from VIT Vellore, India.</p>
 
-        <!--   {% for post in site.posts %} -->
-        <!--   {% for cat in post.categories %} -->
-        <!--   {% if cat != 'research' and cat != 'Intel' %} -->
-        <!--   <tr> -->
-        <!--     <td style="padding:2.5%;width:25%;vertical-align:middle;min-width:120px"> -->
-        <!--       <img src="/tn{{post.image}}" alt="project image" style="width:auto; height:auto; max-width:100%;" /> -->
-        <!--     </td> -->
-        <!--     <td style="padding:2.5%;width:75%;vertical-align:middle"> -->
-        <!--       <h3>{{post.title}}</h3> -->
-        <!--       <br> -->
-        <!--       <em>{{post.categories}} {{post.course}}</em> -->
-        <!--       <br> -->
-        <!--       {{ post.date | date: "%Y-%m-%d" }} -->
+        <nav class="links" aria-label="Profiles">
+          <a href="https://mailhide.io/e/ikUqNic9" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>Email</a>
+          <a href="https://drive.google.com/file/d/1M4X9x0pnLcMvfl0_j46prZwOMSodp45D/view?usp=sharing" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>CV</a>
+          <a href="https://scholar.google.com/citations?user=rgecEYoAAAAJ&amp;hl=en" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></svg>Scholar</a>
+          <a href="https://github.com/singhularadi" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg>GitHub</a>
+        </nav>
+      </div>
 
-        <!--       <br> -->
-        <!--       {% if post.website %} -->
-        <!--       <a href="{{post.website}}">website</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.paper %} -->
-        <!--       <a href="{{post.paper}}">paper</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.patent %} -->
-        <!--       <a href="{{post.patent}}">patent</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.patent2 %} -->
-        <!--       <a href="{{post.patent2}}">patent #2</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.patent3 %} -->
-        <!--       <a href="{{post.patent3}}">patent #3</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.video %} -->
-        <!--       <a href="{{post.video}}">video</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.video2 %} -->
-        <!--       <a href="{{post.video2}}">video #2</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.code %} -->
-        <!--       <a href="{{post.code}}">code</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.poster %} -->
-        <!--       <a href="{{post.poster}}">poster</a> / -->
-        <!--       {% endif %} -->
-        <!--       {% if post.slides %} -->
-        <!--       <a href="{{post.slides}}">slides</a> / -->
-        <!--       {% endif %} -->
-        <!--       <p></p> -->
-        <!--       {{ post.excerpt }} -->
-        <!--     </td> -->
-        <!--   </tr> -->
-        <!--   {% endif %} -->
-        <!--   {% endfor %} -->
-        <!--   {% endfor %} -->
-        <!-- </table> -->
+      <img class="portrait" src="{{ site.baseurl }}/images/profile.jpg" alt="Portrait of Aditya Pratap Singh" width="440" height="440">
+    </header>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:center;font-size:small;">
-                Design and source code from <a style="font-size:small;" href="https://jonbarron.info">Jon Barron's website</a>
-              </p>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+    <!-- ============ NEWS ============ -->
+    {% if site.data.news and site.data.news.size > 0 %}
+    <section class="section" aria-labelledby="news-heading">
+      <h2 id="news-heading">News</h2>
+      <ul class="news">
+        {% for item in site.data.news %}
+        <li{% if forloop.index > 5 %} class="news-older" hidden{% endif %}>
+          <time>{{ item.date | date: "%b %Y" }}</time>
+          <span>{{ item.text }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% if site.data.news.size > 5 %}
+      <button class="news-toggle" type="button" aria-expanded="false">Show older news</button>
+      <script>
+        (function () {
+          var btn = document.querySelector('.news-toggle');
+          btn.addEventListener('click', function () {
+            var open = btn.getAttribute('aria-expanded') === 'true';
+            document.querySelectorAll('.news-older').forEach(function (li) { li.hidden = open; });
+            btn.setAttribute('aria-expanded', String(!open));
+            btn.textContent = open ? 'Show older news' : 'Show less';
+          });
+        })();
+      </script>
+      {% endif %}
+    </section>
+    {% endif %}
+
+    <!-- ============ RESEARCH ============ -->
+    <section class="section" aria-labelledby="research-heading">
+      <h2 id="research-heading">Research</h2>
+      <div class="pubs">
+        {% for post in site.posts %}
+        {% if post.categories contains 'research' %}
+        <article class="pub">
+          <a class="pub-thumb" href="{{ post.website | default: post.arxiv | default: post.paper }}">
+            {% if post.teaser_video %}
+            <video src="{{ site.baseurl }}/tn{{ post.teaser_video }}" poster="{{ site.baseurl }}/tn{{ post.image }}" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video>
+            {% else %}
+            <img src="{{ site.baseurl }}/tn{{ post.image }}" alt="" loading="lazy">
+            {% endif %}
+          </a>
+          <div class="pub-body">
+            <h3><a href="{{ post.website | default: post.arxiv | default: post.paper }}">{{ post.title }}</a></h3>
+            <p class="authors">{{ post.authors | replace: site.name, '<strong>Aditya Pratap Singh</strong>' }}</p>
+            <p class="venue"><em>{{ post.venue }}</em>, {{ post.date | date: "%Y" }}</p>
+            <p class="pub-links">
+              {% if post.arxiv %}<a href="{{ post.arxiv }}">arXiv</a>{% endif %}
+              {% if post.paper %}<a href="{{ post.paper }}">paper</a>{% endif %}
+              {% if post.website %}<a href="{{ post.website }}">project page</a>{% endif %}
+              {% if post.video %}<a href="{{ post.video }}">video</a>{% endif %}
+              {% if post.code %}<a href="{{ post.code }}">code</a>{% endif %}
+              {% if post.poster %}<a href="{{ post.poster }}">poster</a>{% endif %}
+              {% if post.slides %}<a href="{{ post.slides }}">slides</a>{% endif %}
+              {% if post.youtube %}<a href="{{ post.youtube }}">youtube</a>{% endif %}
+            </p>
+            {% assign excerpt = post.excerpt | strip_html | strip %}
+            {% if excerpt != '' %}<p class="summary">{{ excerpt }}</p>{% endif %}
+          </div>
+        </article>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ============ ABSTRACTS ============ -->
+    {% if site.data.abstracts and site.data.abstracts.size > 0 %}
+    <section class="section" aria-labelledby="abstracts-heading">
+      <h2 id="abstracts-heading">Abstracts &amp; Presentations</h2>
+      <ul class="abstracts">
+        {% for item in site.data.abstracts %}
+        <li>
+          <a class="abstract-title" href="{{ item.link }}">{{ item.title }}</a>
+          <span class="authors">{{ item.authors | replace: site.name, '<strong>Aditya Pratap Singh</strong>' }}</span>
+          {% for v in item.venues %}<span class="venue"><em>{{ v }}</em></span>{% endfor %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    <footer class="footer">
+      <p>Design adapted from <a href="https://jonbarron.info">Jon Barron's website</a>.</p>
+    </footer>
+  </main>
 </body>
 
 </html>
-

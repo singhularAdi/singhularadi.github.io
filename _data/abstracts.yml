@@ -1,0 +1,21 @@
+# Talks, posters and conference abstracts, newest first. Shown as a compact list below Research.
+# List every venue a work was presented at under `venues`.
+
+- title: Deep Neural Network-based characterization of jovian moist convection
+  authors: Ramanakumar Sankar, Bernadette Bucher, Emma Dahl, Gerald Eichstädt, Georgios Georgakis, Aditya Pratap Singh, Shrey Shah, Sofia Talleri, Michael Wong
+  venues:
+    - AGU Fall Meeting 2025, P51B-06
+  link: https://ui.adsabs.harvard.edu/abs/2025AGUFMP51B...06S/abstract
+
+- title: Characterizing the Color and Structure of Jupiter's Clouds and Aerosols with Deep Learning
+  authors: Emma Dahl, Ramanakumar Sankar, Bernadette Bucher, Aditya Pratap Singh, Shrey Shah, Gerald Eichstädt, Michael Wong, Georgios Georgakis
+  venues:
+    - AGU Fall Meeting 2025, P31C-07
+  link: https://ui.adsabs.harvard.edu/abs/2025AGUFMP31C...07D/abstract
+
+- title: Structure-Preserving Unpaired Image Translation to Photometrically Calibrate JunoCam with Hubble Data
+  authors: Aditya Pratap Singh, Shrey Shah, Ramanakumar Sankar, Emma Dahl, Gerald Eichstädt, Georgios Georgakis, Bernadette Bucher
+  venues:
+    - 2025 Michigan AI Symposium (AI for Science), poster
+    - CVPR 2025 Workshop on Computer Vision for Science (CV4Science), poster and lightning talk
+  link: https://m-and-m-lab.github.io/junocam-calibration/

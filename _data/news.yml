@@ -1,0 +1,23 @@
+# News items, newest first. Use full YYYY-MM-DD dates (shown as "Mon YYYY"). `text` supports inline HTML (links, <strong>, etc.).
+# The first 5 are shown by default; the rest are behind a "Show older news" toggle.
+#
+# - date: 2026-06-15
+#   text: Paper accepted to <a href="https://example.com">VENUE 2026</a>!
+
+- date: 2026-09-15
+  text: <a href="https://anton-arapin.github.io/d3wm-site/">D3WM</a>, our work on decoupled drift-diffusion world models for consistent future frame prediction, is out (<a href="https://anton-arapin.github.io/d3wm-site/assets/D3WM_arxiv.pdf">paper</a>).
+
+- date: 2026-01-15
+  text: Advanced to PhD candidacy!
+
+- date: 2025-12-15
+  text: Two abstracts on deep learning for Jupiter's atmosphere at AGU Fall Meeting 2025, on <a href="https://ui.adsabs.harvard.edu/abs/2025AGUFMP31C...07D/abstract">cloud and aerosol characterization</a> and <a href="https://ui.adsabs.harvard.edu/abs/2025AGUFMP51B...06S/abstract">jovian moist convection</a>.
+
+- date: 2025-11-27
+  text: Our preprint on <a href="https://arxiv.org/abs/2511.22668v1">photometrically calibrating JunoCam with Hubble data</a> is out on arXiv.
+
+- date: 2025-10-14
+  text: Presented a poster on our <a href="https://m-and-m-lab.github.io/junocam-calibration/">JunoCam calibration</a> work at the <a href="https://ai.engin.umich.edu/events/2025-ai-symposium/">2025 Michigan AI Symposium</a> on AI for Science.
+
+- date: 2025-06-15
+  text: Gave a lightning talk and presented a poster on our <a href="https://m-and-m-lab.github.io/junocam-calibration/">JunoCam calibration</a> work at the CVPR 2025 <a href="https://sites.google.com/nyu.edu/computervisionforscience/cvpr-2025">Computer Vision for Science (CV4Science)</a> workshop.

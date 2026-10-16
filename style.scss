@@ -1,105 +1,357 @@
 ---
 ---
 
-//
-// IMPORTS
-//
+/**********/
+/* TOKENS */
+/**********/
+:root {
+  --bg: #fbfaf8;
+  --surface: #ffffff;
+  --text: #1d1d1f;
+  --muted: #5f6368;
+  --border: #e6e3de;
+  --accent: #1f5fbf;
+  --accent-hover: #c2410c;
+  --accent-soft: #eaf1fb;
 
-//@import "reset";
-//@import "variables";
-// Syntax highlighting @import is at the bottom of this file
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141517;
+    --surface: #1b1d20;
+    --text: #e8e6e3;
+    --muted: #a0a4a9;
+    --border: #2c2f33;
+    --accent: #7fb0ff;
+    --accent-hover: #ffb36b;
+    --accent-soft: #1d2a3d;
+  }
+}
 
 /**************/
 /* BASE RULES */
 /**************/
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
 a {
-  color: #1772d0;
+  color: var(--accent);
   text-decoration: none;
+  transition: color .15s ease;
 }
 
-a:focus,
-a:hover {
-  color: #f09228;
-  text-decoration: none;
+a:hover,
+a:focus-visible {
+  color: var(--accent-hover);
 }
 
-body,
-td,
-th,
-tr,
-p,
-a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 16px;
-  font-display: auto;
+p { margin: 0 0 1em; }
+
+.nowrap { white-space: nowrap; }
+
+h1, h2, h3 { margin: 0; }
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 64px 24px 48px;
 }
 
-strong {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 16px;
-  font-display: auto;
+/*********/
+/* INTRO */
+/*********/
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 48px;
+  align-items: center;
 }
 
-h2 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 22px;
-  font-display: auto;
-  font-weight: normal;
-  padding: 0px;
-  margin: 0px;
-  display:inline; 
+.intro h1 {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
-h3 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  font-display: auto;
-  padding: 0px;
-  margin: 0px;
-  display:inline; 
+.tagline {
+  margin: 6px 0 24px;
+  color: var(--muted);
+  font-size: 15px;
 }
 
-h1 {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 32px;
-  font-weight: normal;
-  font-display: auto;
+.portrait {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+
+.links a:hover,
+.links a:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.links svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/************/
+/* SECTIONS */
+/************/
+.section {
+  margin-top: 56px;
+}
+
+.section h2 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+/********/
+/* NEWS */
+/********/
+.news {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news li {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 16px;
+  padding: 6px 0;
+}
+
+.news li[hidden] { display: none; }
+
+.news time {
+  color: var(--muted);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+  padding-top: 1px;
+  white-space: nowrap;
+}
+
+.news-toggle {
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.news-toggle:hover { color: var(--accent-hover); }
+
+/************/
+/* RESEARCH */
+/************/
+.pubs {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.pub-thumb img,
+.pub-thumb video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain; /* uniform tiles without cropping figures */
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.pub-thumb:hover img,
+.pub-thumb:hover video {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+}
+
+.pub h3 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+.pub h3 a { color: var(--text); }
+.pub h3 a:hover { color: var(--accent); }
+
+.pub p { margin: 0 0 4px; }
+
+.authors {
+  font-size: 15px;
+  color: var(--muted);
+}
+
+.authors strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.venue { font-size: 15px; }
+
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px !important;
+}
+
+.pub-links a {
+  padding: 2px 10px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.pub-links a:hover { background: var(--border); }
+
+.summary {
+  margin-top: 10px !important;
+  font-size: 15px;
+}
+
+/*************/
+/* ABSTRACTS */
+/*************/
+.abstracts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.abstracts li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.abstract-title {
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.abstract-title:hover { color: var(--accent); }
+
+/**********/
+/* FOOTER */
+/**********/
+.footer {
+  margin-top: 72px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
   text-align: center;
-  padding: 0px;
-  margin-block-start: 14px;
-  margin-block-end: 14px;
-  margin-left: 0px;
-  margin-right: 0px;
-
 }
 
-.one {
-  width: 160px;
-  height: 160px;
-  position: relative;
-}
+/**********/
+/* MOBILE */
+/**********/
+@media (max-width: 680px) {
+  .page { padding: 40px 16px 32px; }
 
-.two {
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-}
+  .intro {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
 
-.fade {
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-}
+  .portrait {
+    order: -1;
+    width: 132px;
+    margin: 0;
+  }
 
-span.highlight {
-  background-color: #ffffd0;
-}
+  .intro h1 { font-size: 32px; }
 
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
-//@import "highlights";
-//@import "svg-icons";
+  .pub {
+    grid-template-columns: 112px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .pub h3 { font-size: 16px; }
+
+  .links { gap: 6px; }
+
+  .links a {
+    padding: 5px 11px;
+    font-size: 13.5px;
+  }
+
+  .news li {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
