@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="JEVA: a latent-action world model that co-trains an inverse dynamics model and a forward world model end-to-end, in a single stage, from mostly action-free trajectories.">
+  <meta name="keywords" content="JEVA, world models, latent action models, inverse dynamics, robot learning, variance-reduced routing">
+  <title>JEVA: Joint Encoders for Variational Action World Models</title>
+
+  <meta property="og:title" content="JEVA: Joint Encoders for Variational Action World Models">
+  <meta property="og:description" content="Single-stage co-training of inverse and forward dynamics from sparsely labeled trajectories.">
+  <meta property="og:image" content="https://singhularadi.github.io/jeva/static/images/overview.png">
+  <meta property="og:url" content="https://singhularadi.github.io/jeva/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.ico" sizes="48x48">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">JEVA: Joint Encoders for Variational Action World Models</h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://singhularadi.github.io/">Aditya Singh</a>,</span>
+            <span class="author-block">Sanyam Mehta,</span>
+            <span class="author-block">Yixin Wang,</span>
+            <span class="author-block">Nima Fazeli,</span>
+            <span class="author-block"><a href="https://bucherb.github.io/">Bernadette Bucher</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Michigan</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- TODO: enable the arXiv button once the arXiv ID exists -->
+              <span class="link-block">
+                <a href="static/jeva.pdf" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark is-disabled-link" title="Coming soon">
+                  <span class="icon"><i class="fas fa-book-open"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#" class="external-link button is-normal is-rounded is-dark is-disabled-link" title="Code will be released upon acceptance">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code (coming soon)</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TEASER ============================== -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/overview.png" alt="JEVA overview: unlabeled and sparsely labeled trajectories feed an inverse dynamics model and a forward dynamics model that are co-trained through a continuous VAE latent action." class="full-width">
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">JEVA</span> co-trains an inverse dynamics model and a forward world model
+        end-to-end, in a single stage, through a continuous Gaussian latent action. Abundant
+        action-free trajectories shape the dynamics; a small labeled fraction anchors the latent
+        actions to real robot controls.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ABSTRACT ============================== -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Learning world models for robotic control typically requires large amounts of action-labeled
+            data, which is expensive to collect, whereas action-free demonstrations such as video are
+            abundant. Latent action models address this imbalance by inferring the actions that explain
+            observed transitions, but training the inverse dynamics model (IDM) jointly with the forward
+            model is unstable. Existing methods therefore fix the latent action space before training the
+            world model, or add a separate inverse-dynamics warm-up stage.
+          </p>
+          <p>
+            We introduce <span class="dnerf">JEVA</span>, a latent-action world model that co-trains an IDM
+            and a forward world model end-to-end from scratch in a single stage, on a pool of trajectories
+            in which only a small fraction of transitions carry action labels. JEVA treats the action between
+            two visual states as a continuous Gaussian latent that can be planned over and decoded into
+            continuous controls.
+          </p>
+          <p>
+            <b>Variance-reduced routing (VRR)</b> is what makes single-stage training work. On labeled
+            transitions, where the action decoder keeps posteriors tight, VRR conditions the forward predictor
+            on the posterior mean instead of a sample. This removes reparameterization noise from the
+            predictor gradient at the cost of a small bias, and it also removes a penalty that otherwise drives
+            latent actions toward collapse: with a warm-up stage and no VRR, every latent-action dimension
+            collapses.
+          </p>
+          <p>
+            With 5% of episodes labeled, a policy trained in JEVA's latent action space matches or exceeds
+            every baseline trained with 20% of labels on OGBench Cube-Double and Cube-Triple. Under CEM
+            planning, JEVA leads the strongest world-model baseline by 11&ndash;22 points on all three Cube tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== METHOD ============================== -->
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+
+    <img src="static/images/architecture.png" alt="JEVA architecture and gradient flow" class="full-width">
+    <p class="caption">
+      <b>Architecture and gradient flow.</b> A shared encoder maps observations to latent states. The IDM infers a
+      continuous Gaussian latent action. Variance-reduced routing passes the posterior mean to the forward predictor
+      on labeled transitions, and keeps stochastic samples on unlabeled transitions and for the action decoder.
+    </p>
+
+    <div class="content method-text">
+      <div class="columns">
+        <div class="column">
+          <h4 class="title is-5">Gaussian latent actions</h4>
+          <p>
+            Inverse dynamics is posterior inference in a conditional VAE. A strictly causal IDM infers each latent
+            action from the two states it connects,
+            $q_\phi(\ell_t \mid z_t, z_{t+1}) = \mathcal{N}(\mu_t, \mathrm{diag}(\sigma_t^2))$.
+            The low-dimensional bottleneck limits how much future content can leak to the predictor. A KL prior and
+            SIGReg keep the space well scaled, so it can be sampled and searched at planning time.
+          </p>
+        </div>
+        <div class="column">
+          <h4 class="title is-5">Sparse action grounding</h4>
+          <p>
+            A two-layer MLP decoder $D_a$ maps latent actions to action chunks, trained only on labeled transitions.
+            The forward predictor (a 6-layer AdaLN-Zero Transformer) learns from <em>every</em> transition, so action-free
+            data shapes the same latent action space that the labels ground.
+          </p>
+        </div>
+      </div>
+
+      <div class="box vrr-box">
+        <h4 class="title is-5">Variance-Reduced Routing (VRR)</h4>
+        <p>
+          Each step draws a labeled batch $B_L$ and an unlabeled batch $B_U$. VRR chooses what the forward predictor sees:
+        </p>
+        <p class="has-text-centered">
+          $$\bar{\ell}_t = \begin{cases} \mu_t, & t \in B_L \\ \ell_t \sim q_\phi, & t \in B_U \end{cases}$$
+        </p>
+        <p>
+          The posterior-mean gradient is deterministic, so its error is pure bias. The sampled gradient's error is pure
+          variance. When posteriors are tight (width $\tau$), the bias is $O(\tau^4)$ and the variance is $O(\tau^2)$, so VRR wins.
+          The action decoder keeps labeled posteriors in exactly that regime. Sampling also adds an implicit penalty
+          $\mathrm{tr}(J\Sigma J^\top)$ that pushes the predictor to ignore $\ell$. VRR removes it on the labeled branch,
+          which prevents latent-action collapse.
+        </p>
+      </div>
+
+      <h4 class="title is-5">Acting in the latent action space</h4>
+      <p>
+        At test time JEVA selects latent actions and decodes them with the frozen decoder. It can do this either with
+        <b>CEM planning</b>, which rolls out the forward model in a receding horizon, or with a
+        <b>goal-conditioned latent-action policy</b> (JEVA-BC), which amortizes planning into a single forward pass.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RESULTS ============================== -->
+<section class="section pt-0">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+
+    <img src="static/images/results.png" alt="Success rate versus labeled fraction for CEM planners (top row) and behavior cloning policies (bottom row) on five tasks" class="full-width">
+    <p class="caption">
+      Success rate vs. fraction of labeled episodes, with CEM planners (a&ndash;e) and learned policies (f&ndash;j).
+      Baselines train on the labeled subset only. JEVA additionally uses the action-free pool. Mean &plusmn; std over
+      3 seeds of 100 episodes each.
+    </p>
+
+    <div class="columns is-multiline highlights">
+      <div class="column is-one-third">
+        <div class="stat"><span class="stat-num">68.7%</span><span class="stat-label">Cube-Double with <b>5%</b> labels (JEVA-BC), vs. best 20%-label baseline at 63.3%</span></div>
+      </div>
+      <div class="column is-one-third">
+        <div class="stat"><span class="stat-num">+11&ndash;22</span><span class="stat-label">points over the strongest world-model baseline under CEM on all three Cube tasks</span></div>
+      </div>
+      <div class="column is-one-third">
+        <div class="stat"><span class="stat-num">90.0%</span><span class="stat-label">PushT with <b>5%</b> labels (JEVA-BC), vs. 81.0% for LeWM-BC</span></div>
+      </div>
+    </div>
+
+    <h3 class="title is-4 mt-5">Success rate (%) at 5% labeled episodes</h3>
+    <div class="table-container">
+      <table class="table is-fullwidth is-hoverable is-narrow results-table">
+        <thead>
+          <tr><th>Method</th><th>Type</th><th>PushT</th><th>Reacher</th><th>Cube-Single</th><th>Cube-Double</th><th>Cube-Triple</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>LeWM</td><td>Plan</td><td>51.3</td><td>70.0</td><td>66.7</td><td>35.3</td><td>32.0</td></tr>
+          <tr><td>PLDM</td><td>Plan</td><td>35.3</td><td>71.7</td><td>62.0</td><td>33.7</td><td>36.3</td></tr>
+          <tr><td>DINO-WM</td><td>Plan</td><td>49.7</td><td>75.3</td><td>61.3</td><td>32.0</td><td>35.0</td></tr>
+          <tr class="ours"><td>JEVA</td><td>Plan</td><td>75.0</td><td>74.7</td><td>78.0</td><td>55.0</td><td>49.7</td></tr>
+          <tr class="sep"><td>LeWM-BC</td><td>Policy</td><td>81.0</td><td><b>79.7</b></td><td>99.3</td><td>58.3</td><td>39.7</td></tr>
+          <tr><td>GCBC</td><td>Policy</td><td>45.3</td><td>74.7</td><td>81.0</td><td>41.3</td><td>40.3</td></tr>
+          <tr><td>GCIVL</td><td>Policy</td><td>15.7</td><td>55.0</td><td>59.3</td><td>44.3</td><td>38.3</td></tr>
+          <tr class="ours"><td>JEVA-BC</td><td>Policy</td><td><b>90.0</b></td><td>73.0</td><td><b>99.7</b></td><td><b>68.7</b></td><td><b>58.0</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption">Full results at 5/10/15/20% labels, with standard deviations, are in the paper's appendix.</p>
+  </div>
+</section>
+
+<!-- ============================== BIBTEX ============================== -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <!-- TODO: update once the arXiv entry exists -->
+    <pre><code>@article{singh2026jeva,
+  title   = {JEVA: Joint Encoders for Variational Action World Models},
+  author  = {Singh, Aditya and Mehta, Sanyam and Wang, Yixin and Fazeli, Nima and Bucher, Bernadette},
+  journal = {arXiv preprint},
+  year    = {2026}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            <a href="https://m-and-m-lab.github.io/">M&amp;M Lab</a>, University of Michigan.
+            Website template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
+            (<a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+/* Based on the Nerfies project page styles (CC BY-SA 4.0). */
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.publication-title,
+.title {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-title {
+  line-height: 1.25;
+}
+
+.publication-authors {
+  font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors .author-block {
+  display: inline-block;
+  margin: 0 0.15em;
+}
+
+.publication-links {
+  margin-top: 0.5rem;
+}
+
+.link-block {
+  display: inline-block;
+  margin: 0.25rem 0.15rem;
+}
+
+.is-disabled-link {
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.dnerf {
+  font-variant: small-caps;
+  font-weight: 600;
+}
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 2rem;
+}
+
+.teaser .subtitle {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.full-width {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.caption {
+  font-size: 0.92rem;
+  color: #555;
+  margin: 0.6rem 0 1.5rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 768px) {
+  .publication-title {
+    font-size: 2rem !important;
+  }
+}
+
+/* Method */
+.method-text {
+  margin-top: 1rem;
+}
+
+.vrr-box {
+  border-left: 4px solid #c0392b;
+  margin: 1.5rem 0;
+}
+
+/* Results highlights */
+.highlights {
+  margin: 0.5rem 0 1rem;
+}
+
+.stat {
+  height: 100%;
+  border-radius: 10px;
+  background: #f7f3f2;
+  padding: 1rem 1.1rem;
+  text-align: center;
+}
+
+.stat-num {
+  display: block;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #c0392b;
+  line-height: 1.2;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 0.3rem;
+}
+
+/* Tables */
+.results-table th,
+.results-table td {
+  text-align: center !important;
+  vertical-align: middle;
+  font-variant-numeric: tabular-nums;
+}
+
+.results-table td:first-child,
+.results-table th:first-child {
+  text-align: left !important;
+}
+
+.results-table td:nth-child(2) {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+tr.ours {
+  background: #fbeeec;
+  font-weight: 600;
+}
+
+tr.sep td {
+  border-top: 2px solid #bbb;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}

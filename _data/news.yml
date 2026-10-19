@@ -4,6 +4,9 @@
 # - date: 2026-06-15
 #   text: Paper accepted to <a href="https://example.com">VENUE 2026</a>!
 
+- date: 2026-10-14
+  text: <a href="/jeva/">JEVA</a>, a latent-action world model that co-trains inverse and forward dynamics in a single stage from mostly action-free data, is out (<a href="/jeva/static/jeva.pdf">paper</a>).
+
 - date: 2026-09-15
   text: <a href="https://anton-arapin.github.io/d3wm-site/">D3WM</a>, our work on decoupled drift-diffusion world models for consistent future frame prediction, is out (<a href="https://anton-arapin.github.io/d3wm-site/assets/D3WM_arxiv.pdf">paper</a>).
 
