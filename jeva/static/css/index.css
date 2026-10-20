@@ -140,3 +140,85 @@ pre {
   white-space: pre-wrap;
   word-break: break-word;
 }
+
+/* Policy rollouts: one row per task (2 successes, 1 failure) */
+.rollout-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rollout-row {
+  display: grid;
+  grid-template-columns: 6.5rem repeat(3, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.rollout-task {
+  font-family: 'Google Sans', sans-serif;
+  font-weight: 600;
+  text-align: right;
+}
+
+.rollout-row figure {
+  margin: 0;
+}
+
+.rollout-row video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.rollout-clip {
+  position: relative;
+}
+
+.rollout-clip .replay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.rollout-clip.ended .replay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rollout-clip .replay:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.rollout-row figcaption {
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+.tag.is-failure {
+  background: #fbeeec;
+  color: #b3261e;
+}
+
+@media (max-width: 640px) {
+  .rollout-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rollout-task {
+    text-align: left;
+  }
+}
